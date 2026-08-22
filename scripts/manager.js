@@ -55,6 +55,9 @@ function managerbuttons(){
         });
         btnedit.addEventListener("click", function(){
             tasks[i].texto = prompt();
+            if(tasks[i].texto === null || tasks[i].texto === ""){
+                return;
+            }
             saveandupdate();
         }); 
 
