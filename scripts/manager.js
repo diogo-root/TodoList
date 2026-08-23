@@ -13,6 +13,7 @@ import { savetasks } from "./tasks.js";
 updatepagemanager();
 
 btnadd.addEventListener("click", function(){
+    btndll.classList.add("btn-delete-all");
     const taskforadd = input.value;
     if(taskforadd == ""){
         alert("Empty");
@@ -27,7 +28,6 @@ btnadd.addEventListener("click", function(){
     saveandupdate();
     input.value = "";   
 });
-
 
 btndll.addEventListener("click", function(){
     tasks= [];
@@ -46,6 +46,8 @@ function managerbuttons(){
         btndell.value = "Excluir";
         btnedit.type = "button";
         btnedit.value = "Editar";
+
+        btndell.style.backgroundColor = "#c84949eb";
 
         btndell.addEventListener("click", function(){
             tasks.splice(i, 1);
