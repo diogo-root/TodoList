@@ -12,13 +12,24 @@
             <h1>TodoList</h1>
             <ul>
                 <li><a href="index.html"><strong>Home</strong></a></li>
-                <li><a href="datamanager.html">Manager</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Sign</a></li>
             </ul>
         </div>
     </header>
     <section>
+        <div class="controlers">
+            <div class="taskmanageradd">
+                <input type="text" placeholder="nova tarefa..." id="newtask">
+                <input type="button" value="Adicionar" id="addnewtask">
+                <input type="button" value="Excluir Tudo" id="deleteall">
+            </div>  
+            <div class="filters">
+                <button>Todas</button>
+                <button>Pendentes</button>
+                <button>Concluidas</button>
+            </div>
+        </div>
         <ul id="ultasklist">    
         </ul>
     </section>
