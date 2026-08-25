@@ -53,6 +53,8 @@ section {
 
     border-left: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-radius: 6px;
 }
 
 section li{
