@@ -36,13 +36,21 @@ function managerbuttons(){
     console.log(lis);
 
     for(let i = 0; i < lis.length; i++){
+        const actions = document.createElement("div");
+        actions.classList.add("task-actions");
+
         const btndell = document.createElement("input");
         const btnedit = document.createElement("input");
+
+        const checkinput = document.createElement("input");
+
 
         btndell.type = "button";
         btndell.value = "Excluir";
         btnedit.type = "button";
         btnedit.value = "Editar";
+
+        checkinput.type = "checkbox";
 
         btndell.style.backgroundColor = "#c84949eb";
 
@@ -58,40 +66,30 @@ function managerbuttons(){
                 return;
             }
             saveandupdate();
-        }); 
-
-        lis[i].appendChild(btndell);
-        lis[i].appendChild(btnedit);
-    }
-}
-
-function check(){
-   let lis = ultasklist.querySelectorAll("li");
-
-    for(let i = 0; i < lis.length; i++){
-        const checkinput = document.createElement("input");
-        checkinput.type = "checkbox";
-
+        });
+        
         checkinput.addEventListener("change", function(){
             tasks[i].concluida = checkinput.checked;
             savetasks(tasks);
         });
-
+        
         lis[i].appendChild(checkinput);
+        lis[i].appendChild(actions);
+       
+        lis[i].appendChild(btnedit);
+        lis[i].appendChild(btndell);
 
         if(tasks[i].concluida == true){
             checkinput.checked = tasks[i].concluida;
         }else{
             checkinput.checked = tasks[i].concluida;
         }
-    }    
+    }
 }
-
 
 function updatepagemanager(){
     rendertasks(tasks, ultasklist);
     managerbuttons();
-    check();
 }
 function saveandupdate(){
     savetasks(tasks);

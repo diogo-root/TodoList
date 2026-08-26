@@ -45,12 +45,9 @@ header {
 
 section {
     width: 50%;
-    height: 50vh;
-
+    height: 60vh;
     margin: 7% auto 0;
-
     overflow-y: auto;
-
     border-left: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     border-right: 1px solid var(--border);
@@ -64,6 +61,8 @@ section li{
     gap: 1%;
     margin-top: 6%;
     align-items: center;
+    padding-right: 10px;
+    overflow-wrap: anywhere;
 }
 
 input[type="button"] {
@@ -116,4 +115,7 @@ input[type="text"]{
     color: var(--primary);
 
     cursor: pointer;
+}
+.task-actions {
+    margin-left: auto;
 }
