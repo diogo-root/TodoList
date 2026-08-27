@@ -77,7 +77,7 @@ function managerbuttons(taskList){
             taskList[i].concluida = checkinput.checked;
             savetasks(tasks);
         });
-        
+        // teste
         lis[i].appendChild(checkinput);
         lis[i].appendChild(actions);
        
