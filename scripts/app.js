@@ -5,6 +5,11 @@ let btndll = document.querySelector("#deleteall");
 let ultasklist = document.querySelector("#ultasklist");
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
+let BtnPendentes = document.querySelector("#pendentes");
+let BtnConcluidas = document.querySelector("#concluidas");
+let BtnAll = document.querySelector("#all");
+
+
 import { rendertasks, savetasks } from "./tasks.js";
 
 updatepagemanager();
@@ -31,7 +36,7 @@ btndll.addEventListener("click", function(){
     saveandupdate();
 });
 
-function managerbuttons(){
+function managerbuttons(taskList){
     let lis = ultasklist.querySelectorAll("li");
     console.log(lis);
 
@@ -55,21 +60,19 @@ function managerbuttons(){
         btndell.style.backgroundColor = "#c84949eb";
 
         btndell.addEventListener("click", function(){
-            tasks.splice(i, 1);
+            taskList[i].splice(i, 1);
             saveandupdate();
-
-          
         });
         btnedit.addEventListener("click", function(){
-            tasks[i].texto = prompt();
-            if(tasks[i].texto === null || tasks[i].texto === ""){
+            taskList[i].texto = prompt();
+            if(taskList[i].texto === null || taskList[i].texto === ""){
                 return;
             }
             saveandupdate();
         });
         
         checkinput.addEventListener("change", function(){
-            tasks[i].concluida = checkinput.checked;
+            taskList[i].concluida = checkinput.checked;
             savetasks(tasks);
         });
         
@@ -79,17 +82,38 @@ function managerbuttons(){
         lis[i].appendChild(btnedit);
         lis[i].appendChild(btndell);
 
-        if(tasks[i].concluida == true){
-            checkinput.checked = tasks[i].concluida;
+        if(taskList[i].concluida == true){
+            checkinput.checked = taskList[i].concluida;
         }else{
-            checkinput.checked = tasks[i].concluida;
+            checkinput.checked = taskList[i].concluida;
         }
     }
 }
+BtnAll.addEventListener("click", function(){
+    updatepagemanager();
+});
+BtnPendentes.addEventListener("click", function(){
+  let filteredtask = tasks.filter(function(tarefa){
+        return tarefa.concluida === false;    
+    });
+    rendertasks(filteredtask, ultasklist);
+    managerbuttons(filteredtask);
+
+});
+BtnConcluidas.addEventListener("click", function(){
+  let filteredtask = tasks.filter(function(tarefa){
+        return tarefa.concluida === true;    
+    });
+    rendertasks(filteredtask, ultasklist);
+    managerbuttons(filteredtask);
+
+});
+
+
 
 function updatepagemanager(){
     rendertasks(tasks, ultasklist);
-    managerbuttons();
+    managerbuttons(tasks);
 }
 function saveandupdate(){
     savetasks(tasks);
