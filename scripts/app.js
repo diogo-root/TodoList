@@ -60,7 +60,9 @@ function managerbuttons(taskList){
         btndell.style.backgroundColor = "#c84949eb";
 
         btndell.addEventListener("click", function(){
-            taskList[i].splice(i, 1);
+            const index = tasks.indexOf(taskList[i]);
+            tasks.splice(index, 1);
+            
             saveandupdate();
         });
         btnedit.addEventListener("click", function(){
@@ -108,8 +110,6 @@ BtnConcluidas.addEventListener("click", function(){
     managerbuttons(filteredtask);
 
 });
-
-
 
 function updatepagemanager(){
     rendertasks(tasks, ultasklist);
