@@ -17,17 +17,20 @@ updatepagemanager();
 btnadd.addEventListener("click", function(){
     btndll.classList.add("btn-delete-all");
     const taskforadd = input.value;
+    const date = new Date();
     if(taskforadd == ""){
         alert("Empty");
         return;
     }
     const tarefa ={
         texto: taskforadd,
-        concluida: false
+        concluida: false,
+        data: date
     }
 
     tasks.push(tarefa);
     saveandupdate();
+    console.log(tarefa);
     input.value = "";   
 });
 
