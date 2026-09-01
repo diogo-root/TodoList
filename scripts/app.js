@@ -9,7 +9,8 @@ let BtnPendentes = document.querySelector("#pendentes");
 let BtnConcluidas = document.querySelector("#concluidas");
 let BtnAll = document.querySelector("#all");
 
-
+// TESTAR ANTES DE FAZER MERGE COM O MAIN
+// ATUALIZACAO DATA 
 import { rendertasks, savetasks } from "./tasks.js";
 
 updatepagemanager();
@@ -17,7 +18,12 @@ updatepagemanager();
 btnadd.addEventListener("click", function(){
     btndll.classList.add("btn-delete-all");
     const taskforadd = input.value;
-    const date = new Date();
+    let region = Intl.DateTimeFormat().resolvedOptions().locale
+    const date = new Date().toLocaleDateString(region);
+    const time = new Date().toLocaleTimeString(region, {
+    hour: "2-digit",
+    minute: "2-digit"
+});
     if(taskforadd == ""){
         alert("Empty");
         return;
@@ -25,7 +31,8 @@ btnadd.addEventListener("click", function(){
     const tarefa ={
         texto: taskforadd,
         concluida: false,
-        data: date
+        data: date,
+        hora: time
     }
 
     tasks.push(tarefa);
