@@ -8,9 +8,9 @@ let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let BtnPendentes = document.querySelector("#pendentes");
 let BtnConcluidas = document.querySelector("#concluidas");
 let BtnAll = document.querySelector("#all");
+let Btnrecent = document.querySelector("#maisrecentes");
+let Btnremote = document.querySelector("#menosrecente");
 
-// TESTAR ANTES DE FAZER MERGE COM O MAIN
-// ATUALIZACAO DATA 
 import { rendertasks, savetasks } from "./tasks.js";
 
 updatepagemanager();

@@ -24,7 +24,7 @@ header {
 }
 
 .contentheader {
-    width: 50%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,25 +44,33 @@ header {
 }
 
 section {
-    width: 50%;
+    width: 70%;
     height: 60vh;
-    margin: 7% auto 0;
     overflow-y: auto;
-    border-left: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    border-radius: 6px;
 }
 
 section li{
-    list-style: inside;
     border-bottom: 1px solid var(--border);
     display: flex;
     gap: 1%;
     margin-top: 6%;
     align-items: center;
     padding-right: 10px;
+    padding-left: 10px;
     overflow-wrap: anywhere;
+}
+nav{
+    width: 15%;
+    height: 80vh;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+main{
+    display: flex;
+    align-items: center;
 }
 
 input[type="button"] {
@@ -103,18 +111,26 @@ input[type="text"]{
     gap: 8px;
 }
 .filters {
+    width: 100%;
     display: flex;
-    gap: 6px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 .filters button {
+    width: 80%;
     border: 1px solid var(--border);
     border-radius: 6px;
     padding: 5px 10px;
-
     background-color: var(--background);
     color: var(--primary);
-
     cursor: pointer;
+}
+.filtersoption{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .task-actions {
     margin-left: auto;

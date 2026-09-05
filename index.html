@@ -17,22 +17,33 @@
             </ul>
         </div>
     </header>
-    <section>
-        <div class="controlers">
-            <div class="taskmanageradd">
-                <input type="text" placeholder="nova tarefa..." id="newtask">
-                <input type="button" value="Adicionar" id="addnewtask">
-                <input type="button" value="Excluir Tudo" id="deleteall">
-            </div>  
-            <div class="filters">
-                <button id="all">Todas</button>
-                <button id="pendentes">Pendentes</button>
-                <button id="concluidas">Concluidas</button>
+    <main>
+        <nav>
+            <div class="filtersoption">
+                <a class="filteroptiona" href="#">Filtros</a>
+                <div class="filters">
+                    <button id="all">Todas</button>
+                    <button id="pendentes">Pendentes</button>
+                    <button id="concluidas">Concluidas</button>
+                    <button id="maisrecente">Recentes</button>
+                    <button id="menosrecente">Antigas</button>
+                </div>
             </div>
-        </div>
-        <ul id="ultasklist">    
-        </ul>
-    </section>
+        </nav>
+       
+        <section>
+            <div class="controlers">
+                <div class="taskmanageradd">
+                    <input type="text" placeholder="nova tarefa..." id="newtask">
+                    <input type="button" value="Adicionar" id="addnewtask">
+                    <input type="button" value="Excluir Tudo" id="deleteall">
+                </div>  
+            </div>
+            <ul id="ultasklist">    
+            </ul>
+        </section>
+    </main>
+
 
 </body>
 <script type="module" src="scripts/app.js"></script>
